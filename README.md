@@ -27,4 +27,4 @@ To get the numerical value at finite spin, you need to do the following steps
    
 
 
-## Numerical check of the master integral $\widehat{\mathcal{I}}_3$
+
