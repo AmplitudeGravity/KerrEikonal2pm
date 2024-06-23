@@ -18,8 +18,10 @@ To get the numerical value at finite spin, you need to do the following steps
 2. replace all the dynamic parameters by numerical value
 3. perform the numerical integration by `NIntegrate` from 0 to 1.
 
-   We add an example to illustrate them and find the spin expasion result is identical with the resummed result for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, spin expansion is not correct any more. 
+   We add an example to illustrate them and find the spin expasion result is identical with the resummed result for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, spin expansion is not correct any more.
+    
    <img width="450" alt="image" src="https://github.com/AmplitudeGravity/KerrEikonal2pm/assets/48633803/b6ac8d6b-86d1-4581-a81e-2bb2651a9d98">
+   
    We also note that, for this example, when $|a|/|b|$ tend to 1, one need to fix the branches properly to get correct numerical result.  
 
    
