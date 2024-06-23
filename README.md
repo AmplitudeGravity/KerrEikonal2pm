@@ -22,7 +22,7 @@ To get the numerical value at finite spin, you need to do the following steps
     
    <img width="450" alt="image" src="https://github.com/AmplitudeGravity/KerrEikonal2pm/assets/48633803/b6ac8d6b-86d1-4581-a81e-2bb2651a9d98">
    
-   We also note that, for this example, when $|a|/|b|$ tend to 1, one need to fix the branches properly to get correct numerical result.  
+   We also note that, for this example, when $|a|/|b|$ tend to 1, one need to fix the branches of squar root properly to get correct numerical result.  
 
    
 
