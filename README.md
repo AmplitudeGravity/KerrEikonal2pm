@@ -1,38 +1,39 @@
 # KerrEikonal2pm
-this is the public data for the paper "Systematic integral evaluation in spin-resummed binary dynamics" The mathematica program is dependent on [KiHA](https://github.com/AmplitudeGravity/kinematicHopfAlgebra) 
+This is the public data for the paper "Systematic integral evaluation in spin-resummed binary dynamics". The `Mathematica` notebooks provided in this repository are dependent on the package [KiHA](https://github.com/AmplitudeGravity/kinematicHopfAlgebra) 
 
 ## Closed form of eikonal
-The closed form of the eikonal in stored in "EikonalClosedformList". Sum over it will generate the complete eikonal phase at 2PM of aligned spin with $a\cdot b\neq 0$. The output structure is like `T[f,rep]`. The `f` denotes the function in terms of $a$ and $b$. The `rep` doentes the replacement of the value of $a$ and $b$ in terms of spin vector `a[1]` and impact parameter `b[0]`.  The `T` means the contributions to eikonal should be evaluated under the $\sigma$-integral as $$T[f,rep]\equiv\int_0^1 d\sigma_1d\sigma_2d\sigma_3d\sigma_4 (f|_{rep}) $$ 
+The closed form of the eikonal is stored in "EikonalClosedformList". Summing it up will generate the complete eikonal phase at 2PM in the aligned-spin configuration with $a\cdot b\neq 0$. The output contains structures of the form `T[f,rep]`, where `f` denotes the function in terms of $a$ and $b$, and `rep` denotes the replacement rules that define the values of $a$ and $b$ in terms of the spin vector `a[1]` and the impact parameter `b[0]`. (For more detail, see the discussions on "sectors" around Eq.(14) in the manuscript.) The placeholder function head `T` indicates that there remain $\sigma_i$-integrations to perform, in order to obtain each term's final contribution to the eikonal phase. Namely, such terms are to be evaluated as $$T[f,rep]\equiv\int_0^1 d\sigma_1d\sigma_2d\sigma_3d\sigma_4 (f|_{rep}) $$ 
 
-## An example for the spin expansion of the eikonal
-To get spin expansion result, you need to do the following steps
-1. expand the incomplete elliptic function `integrate[f1,{K[1],0,y4}]` by `intSeries[_,{y4,10}]`.
-2. perfom the spin expansions
-3. integrate over all the $\sigma$ variables from 0 to 1. 
+## Spin expansion of the eikonal
+To obtain the *analytical* expression for the aligned-spin eikonal at a given order in spin, the following steps are to be taken:
+1. Compute the series expansion of the incomplete elliptic function `integrate[f,{K[1],0,y4}]` using the function `intSeries[_,{y4,order}]`.
+2. Substitute the definitions of `y2` and `y4` in each sector (namely, each `T[f, rep]`) using the functions `Y2[rep]` and `Y4[rep]`.
+3. Substitute the values of `a` and `b` in each sector as given in `rep`.
+4. Compute the series expansion in powers of `a[1]`.
+3. Integrate over all the $\sigma$ variables in each sector from 0 to 1. 
 
 
 
-## An example for numerical evaluation of the eikonal at finite spin
-To get the numerical value at finite spin, you need to do the following steps 
-1. replace the two incomplete elliptic functions `integrate[f1,{K[1],0,y4}]` and `integrate[f2,{K[1],0,y4}]` by the known standard incomplete elliptic functions `EllipticF[_,_]` and `EllipticE[_,_]` in mathematica
-2. replace all the dynamic parameters by numerical value
-3. perform the numerical integration by `NIntegrate` for the $\sigma$-integral from 0 to 1.
+## Numerical evaluation of the eikonal at finite spin
+To obtain the numerical value of the aligned-spin eikonal at finite spin, the following steps are to be taken:
+1. Replace the two incomplete elliptic functions `integrate[f1,{K[1],0,y4}]` and `integrate[f2,{K[1],0,y4}]` with the built-in definitions of the elliptic functions `EllipticF[_,_]` and `EllipticE[_,_]` in `Mathematica` using the replacement `repEKback`.
+2. Substitute the definitions of `y2` and `y4` in each sector (namely, each `T[f, rep]`) using the functions `Y2[rep]` and `Y4[rep]`.
+3. Substitute the values of `a` and `b` in each sector as given in `rep`.
+4. Replace all the dynamic parameters, such as `dot[a[1],b[0]]`, with numerical values
+5. integrate out all the $sigma_i$ variables from 0 to 1 numerically using `NIntegrate`
 
-   We add an example to illustrate them and find the spin expasion result is identical with the resummed result for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, spin expansion is not correct any more.
+   We add an example to illustrate this procedure and show that the spin expansion converges and agrees with the resummed result for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, the expansion in spin does not hold.
     
    <img width="450" alt="image" src="https://github.com/AmplitudeGravity/KerrEikonal2pm/assets/48633803/b6ac8d6b-86d1-4581-a81e-2bb2651a9d98">
    
-   We also note that, for this example, when $|a|/|b|$ tend to 1, one need to fix the branches of squar root properly to get correct numerical result.  
+   We also note that, in this example, as $|a|/|b|\rightarrow 1$, the branch cut of the square root needs to be chosen explicitly in order to obtain the correct numerical result.  
 
    
 ## Spin expansion up to $a^8$
 
 The spin expanded result is stored in the variable `EikonalExpandList2`
 
-## Numerical Result for a background scalar scattering with a test  Kerr black hole at arbitrary spin
-The full data of eikonal is stroed in the variable `intScalarSpin`
+## Numerical value of the eikonal for a background scalar scattering with a test Kerr black hole of arbitrary spin
+The full data of eikonal is stored in the variable `intScalarSpin`
 
-In this limit, the Y diagram result is greatly simplified. $\sigma$-integral is over $\sigma_1$ and  $\sigma_2$. Moreover the incompletely elliptic functions are gone. The eikonal at finite spin is obtained as 
-1. replace all the dynamic parameters by numerical value
-2. perform the numerical integration by `NIntegrate` for the $\sigma$-integral from 0 to 1.
-
+In this limit, the Y-diagram contribution is greatly simplified. There are only two integrations, over $\sigma_1$ and  $\sigma_2$, to carry out. The incompletely elliptic functions are absent. The eikonal at finite spin is obtained in the same way as above, while the procedure is simplified.
