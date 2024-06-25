@@ -22,7 +22,7 @@ To obtain the numerical value of the *aligned-spin* eikonal at finite spin, the 
 4. Replace all the dynamic parameters, such as `dot[a[1],b[0]]`, with numerical values
 5. Integrate out all the $\sigma_i$ variables from 0 to 1 numerically using `NIntegrate`
 
-   We add an example to illustrate this procedure and show that the spin expansion converges and agrees with the resummed result for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, the expansion in spin does not hold.
+   We add an example to illustrate this procedure and show that the spin expansion(orange) converges and agrees with the resummed result(blue) for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, the expansion in spin does not hold.
     
    <img width="450" alt="image" src="https://github.com/AmplitudeGravity/KerrEikonal2pm/assets/48633803/b6ac8d6b-86d1-4581-a81e-2bb2651a9d98">
    
