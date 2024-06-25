@@ -20,7 +20,7 @@ To obtain the numerical value of the *aligned-spin* eikonal at finite spin, the 
 2. Substitute the definitions of `y2` and `y4` in each sector (namely, each `T[f, rep]`) using the functions `Y2[rep]` and `Y4[rep]`.
 3. Substitute the values of `a` and `b` in each sector as given in `rep`.
 4. Replace all the dynamic parameters, such as `dot[a[1],b[0]]`, with numerical values
-5. Integrate out all the $sigma_i$ variables from 0 to 1 numerically using `NIntegrate`
+5. Integrate out all the $\sigma_i$ variables from 0 to 1 numerically using `NIntegrate`
 
    We add an example to illustrate this procedure and show that the spin expansion converges and agrees with the resummed result for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, the expansion in spin does not hold.
     
