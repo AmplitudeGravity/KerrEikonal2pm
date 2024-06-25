@@ -14,15 +14,15 @@ To obtain the *analytical* expression for the aligned-spin eikonal to a given or
 
 
 
-## Numerical evaluation of the eikonal at finite spin
-To obtain the numerical value of the *aligned-spin* eikonal at finite spin, the following steps are to be taken:
+## Numerical evaluation of the eikonal exactly in spin
+To obtain the numerical value of the *aligned-spin* eikonal at finite values of spin exactly, the following steps are to be taken:
 1. Replace the two incomplete elliptic integrals `integrate[f1,{K[1],0,y4}]` and `integrate[f2,{K[1],0,y4}]` with the built-in definitions of the elliptic integrals `EllipticF[_,_]` and `EllipticE[_,_]` in `Mathematica` using the replacement `repEKback`.
 2. Substitute the definitions of `y2` and `y4` in each sector (namely, each `T[f, rep]`) using the functions `Y2[rep]` and `Y4[rep]`.
 3. Substitute the values of `a` and `b` in each sector as given in `rep`.
 4. Replace all the dynamic parameters, such as `dot[a[1],b[0]]`, with numerical values
 5. Integrate out all the $\sigma_i$ variables from 0 to 1 numerically using `NIntegrate`
 
-   We add an example to illustrate this procedure and show that the spin expansion(orange) converges and agrees with the resummed result(blue) for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, the expansion in spin does not hold.
+   We add an example to illustrate this procedure and show that the spin expansion(orange) converges and agrees with the resummed result(blue) for $|a|/|b|<0.5$. For $|a|/|b|>0.5$, the expansion in spin begins to deviate from the exact spin dependence.
     
    <img width="450" alt="image" src="https://github.com/AmplitudeGravity/KerrEikonal2pm/assets/48633803/b6ac8d6b-86d1-4581-a81e-2bb2651a9d98">
    
