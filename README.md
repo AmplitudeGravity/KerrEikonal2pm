@@ -34,6 +34,6 @@ To obtain the numerical value of the *aligned-spin* eikonal at finite spin, the 
 The spin expanded result is stored in the variable `EikonalExpandList2`
 
 ## Numerical values of the eikonal for a test Kerr black hole scattering from a background Schwarzschild black hole
-The full data of eikonal is stored in the variable `intScalarSpin`
+The full data of the eikonal is stored in the variable `intScalarSpin`
 
 In this limit, the Y-diagram contribution is greatly simplified. There are only two integrations, over $\sigma_1$ and  $\sigma_2$, to be carried out. The incomplete elliptic integrals are absent. The eikonal at finite spin is obtained in the same way as above, while the procedure is simplified.
